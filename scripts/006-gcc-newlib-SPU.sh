@@ -2,7 +2,7 @@
 # gcc-newlib-SPU.sh by Naomi Peori (naomi@peori.ca)
 
 GCC="gcc-9.5.0"
-NEWLIB="newlib-4.2.0.20211231"
+NEWLIB="newlib-1.20.0"
 
 if [ ! -d ${GCC} ]; then
 
@@ -16,7 +16,7 @@ if [ ! -d ${GCC} ]; then
 
   ## Patch the source code.
   cat ../patches/${GCC}-PS3-SPU.patch | patch -p1 -d ${GCC}
-  cat ../patches/${NEWLIB}-PS3-SPU.patch | patch -p1 -d ${NEWLIB}
+  cat ../patches/${NEWLIB}-PS3.patch | patch -p1 -d ${NEWLIB}
 
   ## Enter the source code directory.
   cd ${GCC}
@@ -51,6 +51,7 @@ CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fsched
 		--enable-lto \
 		--enable-threads \
 		--enable-newlib-multithread \
+    --enable-newlib-hw-fp \
 		--enable-obsolete \
 		--disable-dependency-tracking \
 		--disable-libcc1 \

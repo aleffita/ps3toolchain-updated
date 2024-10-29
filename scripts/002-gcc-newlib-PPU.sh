@@ -1,8 +1,8 @@
 #!/bin/bash -e
 # gcc-newlib-PPU.sh by Naomi Peori (naomi@peori.ca)
 
-GCC="gcc-14.2.0"
-NEWLIB="newlib-4.4.0.20231231"
+GCC="gcc-13.3.0"
+NEWLIB="newlib-1.20.0"
 
 if [ ! -d ${GCC} ]; then
 
@@ -16,7 +16,7 @@ if [ ! -d ${GCC} ]; then
 
   ## Patch the source code.
   cat ../patches/${GCC}-PS3-PPU.patch | patch -p1 -d ${GCC}
-  cat ../patches/${NEWLIB}-PS3-PPU.patch | patch -p1 -d ${NEWLIB}
+  cat ../patches/${NEWLIB}-PS3.patch | patch -p1 -d ${NEWLIB}
 
   ## Enter the source code directory.
   cd ${GCC}
@@ -58,6 +58,7 @@ CXXFLAGS="${CXXFLAGS/-Werror=format-security/}"
 		--enable-lto \
 		--enable-threads \
 		--enable-newlib-multithread \
+		--enable-newlib-hw-fp \
 		--disable-dependency-tracking \
 		--disable-libcc1 \
 		--disable-multilib \
