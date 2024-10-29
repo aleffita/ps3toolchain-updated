@@ -51,7 +51,6 @@ CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fsched
 		--enable-lto \
 		--enable-threads \
 		--enable-newlib-multithread \
-		--enable-newlib-hw-fp \
 		--enable-obsolete \
 		--disable-dependency-tracking \
 		--disable-libcc1 \
@@ -63,5 +62,5 @@ CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fsched
 
 ## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
-if [ ! -z $ret ]; then PROCS=4; fi
+if [ ! -z $ret ]; then PROCS=8; fi
 ${MAKE:-make} -j $PROCS all && ${MAKE:-make} install

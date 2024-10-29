@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # gcc-newlib-PPU.sh by Naomi Peori (naomi@peori.ca)
 
-GCC="gcc-13.2.0"
+GCC="gcc-14.2.0"
 NEWLIB="newlib-4.2.0.20211231"
 
 if [ ! -d ${GCC} ]; then
@@ -58,7 +58,6 @@ CXXFLAGS="${CXXFLAGS/-Werror=format-security/}"
 		--enable-lto \
 		--enable-threads \
 		--enable-newlib-multithread \
-		--enable-newlib-hw-fp \
 		--disable-dependency-tracking \
 		--disable-libcc1 \
 		--disable-multilib \
@@ -68,5 +67,5 @@ CXXFLAGS="${CXXFLAGS/-Werror=format-security/}"
 
 ## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
-if [ ! -z $ret ]; then PROCS=4; fi
+if [ ! -z $ret ]; then PROCS=8; fi
 ${MAKE:-make} -j $PROCS all && ${MAKE:-make} install
