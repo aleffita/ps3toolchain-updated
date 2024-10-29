@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # gcc-newlib-PPU.sh by Naomi Peori (naomi@peori.ca)
 
-GCC="gcc-14.2.0"
+GCC="gcc-13.3.0"
 NEWLIB="newlib-4.2.0.20211231"
 
 if [ ! -d ${GCC} ]; then
