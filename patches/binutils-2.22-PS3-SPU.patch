@@ -1,4 +1,4 @@
-diff --git a/ld/emulparams/elf32_spu.sh b/ld/emulparams/elf32_spu.sh
+diff --git '--color=auto' -urpN a/ld/emulparams/elf32_spu.sh b/ld/emulparams/elf32_spu.sh
 index 6993ca7..bab3929 100644
 --- a/ld/emulparams/elf32_spu.sh
 +++ b/ld/emulparams/elf32_spu.sh
@@ -11,7 +11,7 @@ index 6993ca7..bab3929 100644
  TEXT_START_ADDR=0
  INITIAL_READONLY_SECTIONS='.interrupt : { KEEP(*(.interrupt)) }'
  if test -z "${CREATE_SHLIB}"; then
-diff --git a/ld/emultempl/spuelf.em b/ld/emultempl/spuelf.em
+diff --git '--color=auto' -urpN a/ld/emultempl/spuelf.em b/ld/emultempl/spuelf.em
 index 92f2d16..a044661 100644
 --- a/ld/emultempl/spuelf.em
 +++ b/ld/emultempl/spuelf.em
@@ -49,7 +49,7 @@ index 92f2d16..a044661 100644
 +LDEMUL_BEFORE_PARSE=spu_before_parse
  LDEMUL_FINISH=gld${EMULATION_NAME}_finish
  LDEMUL_CHOOSE_TARGET=gld${EMULATION_NAME}_choose_target
-diff --git a/ld/ld.h b/ld/ld.h
+diff --git '--color=auto' -urpN a/ld/ld.h b/ld/ld.h
 index a18b265..d504c3e 100644
 --- a/ld/ld.h
 +++ b/ld/ld.h
@@ -63,7 +63,7 @@ index a18b265..d504c3e 100644
    /* If TRUE, build constructors.  */
    bfd_boolean build_constructors;
  
-diff --git a/ld/ldmain.c b/ld/ldmain.c
+diff --git '--color=auto' -urpN a/ld/ldmain.c b/ld/ldmain.c
 index 7aacf0f..ac62d45 100644
 --- a/ld/ldmain.c
 +++ b/ld/ldmain.c
@@ -75,7 +75,7 @@ index 7aacf0f..ac62d45 100644
  
    command_line.warn_mismatch = TRUE;
    command_line.warn_search_mismatch = TRUE;
-diff --git a/ld/lexsup.c b/ld/lexsup.c
+diff --git '--color=auto' -urpN a/ld/lexsup.c b/ld/lexsup.c
 index 20e0271..48df959 100644
 --- a/ld/lexsup.c
 +++ b/ld/lexsup.c

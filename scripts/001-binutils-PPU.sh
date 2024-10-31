@@ -36,18 +36,21 @@ cd ${BINUTILS}/build-ppu
 ## Configure the build.
 unset LDFLAGS
 ../configure --prefix="$PS3DEV/ppu" --target="powerpc64-ps3-elf" \
-		--with-gcc \
-		--with-gnu-as \
-		--with-gnu-ld \
-		--enable-64-bit-bfd \
-		--enable-lto \
-		--disable-nls \
-		--disable-shared \
-		--disable-debug \
-		--disable-dependency-tracking \
-		--disable-werror
+    --with-gcc \
+    --with-gnu-as \
+    --with-gnu-ld \
+    --enable-64-bit-bfd \
+    --enable-lto \
+    --disable-nls \
+    --disable-shared \
+    --disable-debug \
+    --disable-dependency-tracking \
+    --disable-werror \
+    --without-headers
 
-## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
 if [ ! -z $ret ]; then PROCS=8; fi
-${MAKE:-make} -j $PROCS && ${MAKE:-make} libdir=`pwd`/host-libs/lib install
+${MAKE:-make} -j${PROCS} all 
+
+# Verifica se a arquitetura atual é a mesma do target
+${MAKE:-make} libdir=`pwd`/host-libs/lib install

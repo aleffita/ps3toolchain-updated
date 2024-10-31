@@ -1,6 +1,6 @@
 # Original from https://github.com/ps3dev/ps3toolchain
 # Updated for binutils 2.40 by Darjan Krijan [https://disc-kuraudo.eu]
-diff '--color=auto' -urN a/ld/emulparams/elf32_spu.sh b/ld/emulparams/elf32_spu.sh
+diff --git '--color=auto' -urpN a/ld/emulparams/elf32_spu.sh b/ld/emulparams/elf32_spu.sh
 --- a/ld/emulparams/elf32_spu.sh	2022-07-08 11:46:48.000000000 +0200
 +++ b/ld/emulparams/elf32_spu.sh	2023-01-04 22:15:19.310575828 +0100
 @@ -6,6 +6,8 @@
@@ -12,7 +12,7 @@ diff '--color=auto' -urN a/ld/emulparams/elf32_spu.sh b/ld/emulparams/elf32_spu.
  TEXT_START_ADDR=0
  INITIAL_READONLY_SECTIONS='.interrupt : { KEEP(*(.interrupt)) }'
  if test -z "${CREATE_SHLIB}"; then
-diff '--color=auto' -urN a/ld/emultempl/spuelf.em b/ld/emultempl/spuelf.em
+diff --git '--color=auto' -urpN a/ld/emultempl/spuelf.em b/ld/emultempl/spuelf.em
 --- a/ld/emultempl/spuelf.em	2022-07-08 11:46:48.000000000 +0200
 +++ b/ld/emultempl/spuelf.em	2023-01-04 22:17:32.998687355 +0100
 @@ -258,6 +258,14 @@
@@ -37,7 +37,7 @@ diff '--color=auto' -urN a/ld/emultempl/spuelf.em b/ld/emultempl/spuelf.em
 +LDEMUL_BEFORE_PARSE=spu_before_parse
  LDEMUL_FINISH=gld${EMULATION_NAME}_finish
  LDEMUL_CHOOSE_TARGET=gld${EMULATION_NAME}_choose_target
-diff '--color=auto' -urN a/ld/ld.h b/ld/ld.h
+diff --git '--color=auto' -urpN a/ld/ld.h b/ld/ld.h
 --- a/ld/ld.h	2022-07-08 11:46:48.000000000 +0200
 +++ b/ld/ld.h	2023-01-04 22:24:33.832738444 +0100
 @@ -229,6 +229,9 @@
@@ -50,7 +50,7 @@ diff '--color=auto' -urN a/ld/ld.h b/ld/ld.h
    /* If TRUE, build constructors.  */
    bool build_constructors;
  
-diff '--color=auto' -urN a/ld/ldmain.c b/ld/ldmain.c
+diff --git '--color=auto' -urpN a/ld/ldmain.c b/ld/ldmain.c
 --- a/ld/ldmain.c	2022-07-08 11:46:48.000000000 +0200
 +++ b/ld/ldmain.c	2023-01-04 22:16:46.319346843 +0100
 @@ -315,6 +315,7 @@
@@ -61,7 +61,7 @@ diff '--color=auto' -urN a/ld/ldmain.c b/ld/ldmain.c
    config.print_map_discarded = true;
    link_info.disable_target_specific_optimizations = -1;
  
-diff '--color=auto' -urN a/ld/lexsup.c b/ld/lexsup.c
+diff --git '--color=auto' -urpN a/ld/lexsup.c b/ld/lexsup.c
 --- a/ld/lexsup.c	2022-07-08 11:46:48.000000000 +0200
 +++ b/ld/lexsup.c	2023-01-04 22:17:19.218882047 +0100
 @@ -1286,6 +1286,8 @@

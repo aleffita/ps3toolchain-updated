@@ -33,14 +33,16 @@ fi
 ## Enter the build directory.
 cd ${GDB}/build-ppu
 
-## Configure the build.
 ../configure --prefix="$PS3DEV/ppu" --target="powerpc64-ps3-elf" \
     --disable-multilib \
     --disable-nls \
     --disable-sim \
-    --disable-werror
+    --disable-werror \
+    --without-headers
 
-## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
 if [ ! -z $ret ]; then PROCS=8; fi
-${MAKE:-make} -j $PROCS && ${MAKE:-make} libdir=host-libs/lib install
+${MAKE:-make} -j$PROCS all 
+
+# Verifica se a arquitetura atual é a mesma do target
+${MAKE:-make} libdir=`pwd`/host-libs/lib install

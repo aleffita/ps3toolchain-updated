@@ -33,14 +33,15 @@ fi
 ## Enter the build directory.
 cd ${GDB}/build-spu
 
-## Configure the build.
-
 ../configure --prefix="$PS3DEV/spu" --target="spu" \
     --disable-nls \
     --disable-sim \
-    --disable-werror
+    --disable-werror \
+    --without-headers
 
-## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
-if [ ! -z $ret ]; then PROCS=4; fi
-${MAKE:-make} -j $PROCS && ${MAKE:-make} libdir=`pwd`/host-libs/lib install
+if [ ! -z $ret ]; then PROCS=8; fi
+${MAKE:-make} -j$PROCS all 
+
+# Verifica se a arquitetura atual é a mesma do target
+${MAKE:-make} libdir=`pwd`/host-libs/lib install

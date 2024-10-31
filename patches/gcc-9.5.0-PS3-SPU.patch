@@ -1,6 +1,6 @@
 # Original from https://github.com/ps3dev/ps3toolchain
 # Updated to gcc 9.5.0 by Darjan Krijan [https://disc-kuraudo.eu]
-diff '--color=auto' -urN a/gcc/config/rs6000/cell64lv2.h b/gcc/config/rs6000/cell64lv2.h
+diff --git '--color=auto' -urpN a/gcc/config/rs6000/cell64lv2.h b/gcc/config/rs6000/cell64lv2.h
 --- a/gcc/config/rs6000/cell64lv2.h	1970-01-01 01:00:00.000000000 +0100
 +++ b/gcc/config/rs6000/cell64lv2.h	2023-01-01 17:58:23.274094209 +0100
 @@ -0,0 +1,587 @@
@@ -591,7 +591,7 @@ diff '--color=auto' -urN a/gcc/config/rs6000/cell64lv2.h b/gcc/config/rs6000/cel
 +   enabling the __float128 keyword.  */
 +#undef	TARGET_FLOAT128_ENABLE_TYPE
 +#define TARGET_FLOAT128_ENABLE_TYPE 1
-diff '--color=auto' -urN a/gcc/config/rs6000/rs6000.c b/gcc/config/rs6000/rs6000.c
+diff --git '--color=auto' -urpN a/gcc/config/rs6000/rs6000.c b/gcc/config/rs6000/rs6000.c
 --- a/gcc/config/rs6000/rs6000.c	2022-05-27 09:21:11.000000000 +0200
 +++ b/gcc/config/rs6000/rs6000.c	2023-01-01 18:00:32.742783224 +0100
 @@ -1424,6 +1424,10 @@
@@ -625,7 +625,7 @@ diff '--color=auto' -urN a/gcc/config/rs6000/rs6000.c b/gcc/config/rs6000/rs6000
  struct gcc_target targetm = TARGET_INITIALIZER;
  
  #include "gt-rs6000.h"
-diff '--color=auto' -urN a/gcc/config.gcc b/gcc/config.gcc
+diff --git '--color=auto' -urpN a/gcc/config.gcc b/gcc/config.gcc
 --- a/gcc/config.gcc	2022-05-27 09:21:10.000000000 +0200
 +++ b/gcc/config.gcc	2023-01-01 14:28:35.684278963 +0100
 @@ -2587,6 +2587,15 @@
@@ -644,7 +644,7 @@ diff '--color=auto' -urN a/gcc/config.gcc b/gcc/config.gcc
  powerpc-*-darwin*)
  	extra_options="${extra_options} ${cpu_type}/darwin.opt"
  	case ${target} in
-diff '--color=auto' -urN a/gcc/configure b/gcc/configure
+diff --git '--color=auto' -urpN a/gcc/configure b/gcc/configure
 --- a/gcc/configure	2022-05-27 09:21:46.000000000 +0200
 +++ b/gcc/configure	2023-01-01 14:52:19.312078588 +0100
 @@ -28944,12 +28944,12 @@
@@ -662,7 +662,7 @@ diff '--color=auto' -urN a/gcc/configure b/gcc/configure
       emul_name="-melf64ppc"
        ;;
       *le-*-freebsd*)
-diff '--color=auto' -urN a/gcc/configure.ac b/gcc/configure.ac
+diff --git '--color=auto' -urpN a/gcc/configure.ac b/gcc/configure.ac
 --- a/gcc/configure.ac	2022-05-27 09:21:11.000000000 +0200
 +++ b/gcc/configure.ac	2023-01-01 14:51:42.742384668 +0100
 @@ -5671,12 +5671,12 @@
@@ -680,7 +680,7 @@ diff '--color=auto' -urN a/gcc/configure.ac b/gcc/configure.ac
       emul_name="-melf64ppc"
        ;;
       *le-*-freebsd*)
-diff '--color=auto' -urN a/libgcc/config.host b/libgcc/config.host
+diff --git '--color=auto' -urpN a/libgcc/config.host b/libgcc/config.host
 --- a/libgcc/config.host	2022-05-27 09:21:12.000000000 +0200
 +++ b/libgcc/config.host	2023-01-01 14:29:07.913987821 +0100
 @@ -1134,6 +1134,8 @@
@@ -692,7 +692,7 @@ diff '--color=auto' -urN a/libgcc/config.host b/libgcc/config.host
  powerpc*-*-linux*)
  	tmake_file="${tmake_file} rs6000/t-ppccomm rs6000/t-savresfgpr rs6000/t-crtstuff rs6000/t-linux t-dfprules rs6000/t-ppc64-fp t-slibgcc-libgcc"
  	tmake_file="${tmake_file} t-stack rs6000/t-stack-rs6000"
-diff '--color=auto' -urN a/Makefile.in b/Makefile.in
+diff --git '--color=auto' -urpN a/Makefile.in b/Makefile.in
 --- a/Makefile.in	2022-05-27 09:21:10.000000000 +0200
 +++ b/Makefile.in	2023-01-01 14:54:20.241067239 +0100
 @@ -27294,7 +27294,6 @@

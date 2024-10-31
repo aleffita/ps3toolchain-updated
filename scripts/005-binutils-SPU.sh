@@ -33,19 +33,22 @@ fi
 ## Enter the build directory.
 cd ${BINUTILS}/build-spu
 
-## Configure the build.
 ../configure --prefix="$PS3DEV/spu" --target="spu" \
-    --disable-nls \
-    --disable-shared \
-    --disable-debug \
-    --disable-dependency-tracking \
-    --disable-werror \
-    --with-gcc \
-    --with-gnu-as \
-    --with-gnu-ld \
-		--enable-lto
+  --disable-nls \
+  --disable-shared \
+  --disable-debug \
+  --disable-dependency-tracking \
+  --disable-werror \
+  --with-gcc \
+  --with-gnu-as \
+  --with-gnu-ld \
+  --enable-lto \
+  --without-headers
 
-## Compile and install.
 PROCS="$(nproc --all 2>&1)" || ret=$?
 if [ ! -z $ret ]; then PROCS=8; fi
-${MAKE:-make} -j $PROCS && ${MAKE:-make} libdir=host-libs/lib install
+${MAKE:-make} -j$PROCS all 
+
+# Verifica se a arquitetura atual é a mesma do target
+${MAKE:-make} libdir=`pwd`/host-libs/lib install
+

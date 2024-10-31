@@ -1,5 +1,5 @@
 # Updated for mac gdb 8.3.1-PS3 by humbertodias
-diff --git a/gdb/Makefile.in b/gdb/Makefile.in
+diff --git '--color=auto' -urpN a/gdb/Makefile.in b/gdb/Makefile.in
 index 5614cc3386c..a7942e6c37f 100644
 --- a/gdb/Makefile.in
 +++ b/gdb/Makefile.in
@@ -19,7 +19,7 @@ index 5614cc3386c..a7942e6c37f 100644
  	s390-linux-tdep.h \
  	s390-tdep.h \
  	score-tdep.h \
-diff --git a/gdb/python/lib/gdb/command/prompt.py b/gdb/python/lib/gdb/command/prompt.py
+diff --git '--color=auto' -urpN a/gdb/python/lib/gdb/command/prompt.py b/gdb/python/lib/gdb/command/prompt.py
 index 3d662a7d3f1..04b9e49c229 100644
 --- a/gdb/python/lib/gdb/command/prompt.py
 +++ b/gdb/python/lib/gdb/command/prompt.py
@@ -41,7 +41,7 @@ index 3d662a7d3f1..04b9e49c229 100644
              return gdb.prompt.substitute_prompt(self.value)
          else:
              return None
-diff --git a/gdb/python/python.c b/gdb/python/python.c
+diff --git '--color=auto' -urpN a/gdb/python/python.c b/gdb/python/python.c
 index c23db2c1261..422b61bedf6 100644
 --- a/gdb/python/python.c
 +++ b/gdb/python/python.c
@@ -273,7 +273,7 @@ index c23db2c1261..422b61bedf6 100644
  
    make_final_cleanup (finalize_python, NULL);
  
-diff --git a/gdb/run-on-main-thread.c b/gdb/run-on-main-thread.c
+diff --git '--color=auto' -urpN a/gdb/run-on-main-thread.c b/gdb/run-on-main-thread.c
 new file mode 100644
 index 00000000000..86824b5af4a
 --- /dev/null
@@ -376,7 +376,7 @@ index 00000000000..86824b5af4a
 +  runnable_event = make_serial_event ();
 +  add_file_handler (serial_event_fd (runnable_event), run_events, nullptr);
 +}
-diff --git a/gdb/run-on-main-thread.h b/gdb/run-on-main-thread.h
+diff --git '--color=auto' -urpN a/gdb/run-on-main-thread.h b/gdb/run-on-main-thread.h
 new file mode 100644
 index 00000000000..fd1a2c42532
 --- /dev/null
@@ -410,7 +410,7 @@ index 00000000000..fd1a2c42532
 +extern void run_on_main_thread (std::function<void ()> &&);
 +
 +#endif /* GDB_RUN_ON_MAIN_THREAD_H */
-diff --git a/readline/config.h.in b/readline/config.h.in
+diff --git '--color=auto' -urpN a/readline/config.h.in b/readline/config.h.in
 index c194e761a45..07b04fceb56 100644
 --- a/readline/config.h.in
 +++ b/readline/config.h.in
