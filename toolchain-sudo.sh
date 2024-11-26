@@ -4,6 +4,13 @@
 ## Enter the ps3toolchain directory.
 cd "`dirname $0`" || { echo "ERROR: Could not enter the ps3toolchain directory."; exit 1; }
 
+alias gcc="gcc-14"
+alias g++="g++-14"
+alias cc="cc-14"
+alias c++="c++-14"
+
+which gcc
+
 ## Set up the environment.
 export PS3DEV=/usr/local/ps3dev
 export PSL1GHT=$PS3DEV

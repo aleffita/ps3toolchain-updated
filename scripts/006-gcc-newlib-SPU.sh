@@ -45,8 +45,9 @@ cd ${GCC}/build-spu
 
 ## Configure the build.
 unset CFLAGS CXXFLAGS LDFLAGS
-CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc" \
-
+CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc"
+CFLAGS="Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc -Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
+CXXFLAGS="Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc -Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
 ../configure --prefix="$PS3DEV/spu" --target="spu" \
   --enable-languages="c,c++" \
   --enable-lto \
@@ -56,6 +57,7 @@ CFLAGS_FOR_TARGET="-Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fsched
   --enable-obsolete \
   --disable-dependency-tracking \
   --disable-libcc1 \
+  --disable-libstdcxx-pch \
   --disable-libssp \
   --disable-multilib \
   --disable-nls \

@@ -32,7 +32,8 @@ fi
 
 ## Enter the build directory.
 cd ${GDB}/build-ppu
-
+CFLAGS="-Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
+CXXFLAGS="-Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
 ../configure --prefix="$PS3DEV/ppu" --target="powerpc64-ps3-elf" \
     --disable-multilib \
     --disable-nls \

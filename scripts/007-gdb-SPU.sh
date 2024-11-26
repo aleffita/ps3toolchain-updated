@@ -32,7 +32,8 @@ fi
 
 ## Enter the build directory.
 cd ${GDB}/build-spu
-
+CFLAGS="Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc -Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
+CXXFLAGS="Os -fpic -ffast-math -ftree-vectorize -funroll-loops -fschedule-insns -mdual-nops -mwarn-reloc -Werror=format-security -Wno-error=deprecated-declarations -Wno-error=int-conversion"
 ../configure --prefix="$PS3DEV/spu" --target="spu" \
     --disable-nls \
     --disable-sim \

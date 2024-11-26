@@ -611,57 +611,6 @@ index 0000000..4a34fca
 +   enabling the __float128 keyword.  */
 +#undef	TARGET_FLOAT128_ENABLE_TYPE
 +#define TARGET_FLOAT128_ENABLE_TYPE 1
-\ No newline at end of file
-diff --git '--color=auto' -urpN a/gcc/config/rs6000/rs6000.cc b/gcc/config/rs6000/rs6000.cc
-index 196bcbe..11430b8 100644
---- a/gcc/config/rs6000/rs6000.cc
-+++ b/gcc/config/rs6000/rs6000.cc
-@@ -1762,6 +1762,17 @@ static const struct attribute_spec rs6000_attribute_table[] =
- #define TARGET_UPDATE_IPA_FN_TARGET_INFO rs6000_update_ipa_fn_target_info
- 
- 
-+static bool rs6000_cell64lv2_valid_pointer_mode(scalar_int_mode);
-+
-+static bool
-+rs6000_cell64lv2_valid_pointer_mode(scalar_int_mode mode)
-+{
-+  return (mode == SImode || (TARGET_64BIT && mode == DImode) || mode == ptr_mode || mode == Pmode);
-+}
-+
-+#undef TARGET_VALID_POINTER_MODE
-+#define TARGET_VALID_POINTER_MODE rs6000_cell64lv2_valid_pointer_mode
-+
- /* Processor table.  */
- struct rs6000_ptt
- {
-@@ -3491,7 +3502,7 @@ rs6000_linux64_override_options ()
-     {
-       if (TARGET_PROFILE_KERNEL)
- 	{
--	  profile_kernel = 0;
-+	  //profile_kernel = 0; Why???
- 	  error (INVALID_32BIT, "profile-kernel");
- 	}
-       if (OPTION_SET_P (rs6000_current_cmodel))
-diff --git '--color=auto' -urpN a/gcc/configure b/gcc/configure
-index c7b26d1..85e83d3 100755
---- a/gcc/configure
-+++ b/gcc/configure
-@@ -30787,12 +30787,12 @@ $as_echo "#define HAVE_LD_PPC_GNU_ATTR_LONG_DOUBLE 1" >>confdefs.h
- esac
- 
- case "$target:$tm_file" in
--  powerpc64*-*-freebsd* | powerpc64*-*-linux* | powerpc*-*-linux*rs6000/biarch64.h*)
-+  powerpc64*-*-freebsd* | powerpc64*-*-linux* | powerpc64-ps3-elf* | powerpc*-*-linux*rs6000/biarch64.h*)
-   case "$target" in
-      *le-*-linux*)
-      emul_name="-melf64lppc"
-       ;;
--     *-*-linux*)
-+     *-*-linux* | *-ps3-elf*)
-      emul_name="-melf64ppc"
-       ;;
-      *le-*-freebsd*)
 diff --git '--color=auto' -urpN a/libgcc/config.host b/libgcc/config.host
 index 9d72120..7ddde1d 100644
 --- a/libgcc/config.host
