@@ -13,7 +13,7 @@ if [ ! -d ${GCC} ]; then
   ## Unpack the source code.  
   rm -Rf ${GCC} && tar xfvJ gcc-13.2-darwin-r2.tar.gz
   mv gcc-13-branch-gcc-13.2-darwin-r2 ${GCC}
-  rm -Rf ${NEWLIB} && tar xfvz ${NEWLIB}.tar.gz
+  rm -Rf ${NEWLIB} && tar xfvJ ${NEWLIB}.tar.gz
 
   ## Patch the source code.
   #cat ../patches/gcc-13.2.0-PS3-PPU.patch | patch -p1 -d gcc-13.2.0
