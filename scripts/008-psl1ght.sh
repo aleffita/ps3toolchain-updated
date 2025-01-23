@@ -16,4 +16,4 @@ fi
 cd $PSL1GHT_DIR
 
 ## Compile and install.
-${MAKE:-make} install-ctrl && ${MAKE:-make} && ${MAKE:-make} install
+${MAKE:-make} install-ctrl && ${MAKE:-make} -j12 && ${MAKE:-make} install
